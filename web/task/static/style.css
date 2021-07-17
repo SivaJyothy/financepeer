@@ -1,0 +1,13 @@
+.div{
+	width: 30rem;
+	height: 10rem;
+	background: linear-gradient(to right, violet, blue, skyblue);
+}
+
+.card{
+	width: 10rem;
+	height: 10rem;
+	padding: 10%;			
+	border-radius: 5px;
+	text-align: center;
+}
