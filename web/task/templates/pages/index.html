@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Login Page</title>
+	<title>Home Page</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<style>
@@ -14,6 +14,11 @@
 		.menu{
 			display: flex;
 			justify-content: flex-end;
+			margin: 10px;
+		}
+		button{
+			margin: 5px;
+			padding: 3px;
 		}
 		.middle-part{
 			display: flex;
@@ -56,7 +61,7 @@
 		
 			{% csrf_token %}
 			<input type="file" id="selectFiles" oninput="display()" value="Import" accept=".json" /><br />
-			<button id="import">Import</button>
+			<button id="import">Upload</button>
 			<textarea id="result" style="display:none" name ="json_text">
 			</textarea>
 		</form>
