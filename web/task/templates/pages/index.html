@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Login Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<style>
+		.card{
+			width: 30rem;
+			height: 10rem;
+			background: linear-gradient(to right, violet, blue, skyblue);
+		}
+		.menu{
+			display: flex;
+			justify-content: flex-end;
+		}
+		.middle-part{
+			display: flex;
+			justify-content: center;
+		}
+		body{
+			display: flex;
+			justify-content: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function display() {
+		var files = document.getElementById('selectFiles').files;
+  		console.log(files);
+	  if (files.length <= 0) {
+	    return false;
+	  }
+  
+  		var fr = new FileReader();
+  
+  		fr.onload = function(e) { 
+  		console.log(e);
+	    var result = JSON.parse(e.target.result);
+	    var formatted = JSON.stringify(result, null, 2);
+		document.getElementById('result').value = formatted;
+  	}
+  
+	  fr.readAsText(files.item(0));
+	};
+	</script>
+</head>
+<body>
+	<div class="card">
+	<div class="menu">
+		<a href="/posts"><button value="Posts" name="">Posts</button></a>
+		<a href="/"><button value="Logout" name="">Logout</button></a>
+	</div>
+	<div class="middle-part">
+		<form action="{% url 'index' %}" method ="post">
+		
+			{% csrf_token %}
+			<input type="file" id="selectFiles" oninput="display()" value="Import" accept=".json" /><br />
+			<button id="import">Import</button>
+			<textarea id="result" style="display:none" name ="json_text">
+			</textarea>
+		</form>
+		  
+	</div>
+	{% if message %}
+	<p>Succesfully Uploaded</p>
+	{% else %}
+	<p></p>
+	{% endif %}
+	</div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" /> -->
+	<style type="text/css">
+		.div{
+			width: 30rem;
+			height: 10rem;
+			background: linear-gradient(to right, violet, blue, skyblue);
+			display: flex;
+			justify-content: center;
+
+		}
+		body{
+			display: flex;
+			justify-content: center;
+			align-self: center;
+		}
+		.card{
+			width: 10rem;
+			height: 10rem;
+			padding: 10%;			
+			border-radius: 5px;
+			text-align: center;
+		}
+		.label{
+			color: #fff;
+
+		}
+		.table-card {
+			display: flex;
+			justify-content: center;
+			align-self: center;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="div">
+		<div class="card">
+			<form action="{% url 'login' %}" method="post">
+				{% csrf_token %}
+				<table class="table-card">
+					<tr>
+						<td class="label">
+							User Name:
+						</td>
+						<td>
+							<input type="text" name="username">
+						</td>
+					</tr>
+					<tr>
+						<td class="label">
+							Password:
+						</td>
+						<td>
+							<input type="password" name="password">
+						</td>
+					</tr>
+
+				</table>
+				<input class="btn" type="submit" name="login" value="Login">
+			</form>
+		</div>
+	</div>
+</body>
+</html>
